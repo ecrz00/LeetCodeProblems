@@ -46,23 +46,23 @@ A representation of a Tree can be found in Figure 1. Considering that diagram an
 * We can go from a parent to its children, but not from a child to its parent.
 ```mermaid
 graph TD
-    A((1)) --> B((2))
-    A --> C((3))
-    
-    B --> D((4))
-    B --> E((5))
-    B --> F((6))
+A((1)) --> B((2))
+A --> C((3))
 
-    C --> G((7))
-    C --> H((8))
+B --> D((4))
+B --> E((5))
+B --> F((6))
 
-    E --> I((9))
-    E --> J((10))
+C --> G((7))
+C --> H((8))
 
-    G --> K((11))
-    K --> L((12))
+E --> I((9))
+E --> J((10))
 
-    style A fill: #3c8DE8, color: #ffff
+G --> K((11))
+K --> L((12))
+
+style A fill: #3c8DE8, color: #ffffff
 ```
 <p align="center"><i>Figure 1: Representation of a Tree.</i></p>
 
@@ -96,34 +96,34 @@ A subclass of trees is called a **Binary Tree** (for the sake of simplicy, it wi
 
 ```mermaid
 graph TD
-    classDef full fill: #B882FA, color: #fffff
-    classDef complete fill: #3D4DEB, color: #fff
-    classDef perfect fill: #82E2FA, color: #000000
-    A((A)) --> B((B))
-    A --> C((C))
+classDef full fill: #B882FA, color: #ffffff
+classDef complete fill: #3D4DEB, color: #ffffff
+classDef perfect fill: #82E2FA, color: #000000
+A((A)) --> B((B))
+A --> C((C))
 
-    B --> D((D))
-    B --> E((E))
+B --> D((D))
+B --> E((E))
 
-    C --> F((F))
-    C --> G((G))
-    class A,B,C,D,E full
-    class F complete
-    class G perfect
+C --> F((F))
+C --> G((G))
+class A,B,C,D,E full
+class F complete
+class G perfect
 ```
 <p align="center"><i>Figure 2: Subclasses of a  Binary Tree.</i></p>
 A variant of a BT is the Binary Search Tree (BST). in this structure, for every node, all values in the left subtree are less or equal to the node's value, while all values of all in the right subtree are greater. An example of a BST can be found in Figure 3.
 
 ```mermaid
 graph TD
-    A((5)) --> B((1))
-    A --> C((8))
-    
-    B --> D(( -1))
-    B --> E((3))
+A((5)) --> B((1))
+A --> C((8))
 
-    C --> F((7))
-    C --> G((9))
+B --> D(( -1))
+B --> E((3))
+
+C --> F((7))
+C --> G((9))
 ```
 
 Some properties can be computed mathematically (these apply only when the root is considered level 0):
