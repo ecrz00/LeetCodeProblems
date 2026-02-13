@@ -48,21 +48,16 @@ A representation of a Tree can be found in Figure 1. Considering that diagram an
 graph TD
 A((1)) --> B((2))
 A --> C((3))
-
 B --> D((4))
 B --> E((5))
 B --> F((6))
-
 C --> G((7))
 C --> H((8))
-
 E --> I((9))
 E --> J((10))
-
 G --> K((11))
 K --> L((12))
-
-style A fill:#3c8DE8, color:#ffffff
+style A fill:#3c8DE8,color:#fff
 ```
 <p align="center"><i>Figure 1: Representation of a Tree.</i></p>
 
@@ -96,15 +91,13 @@ A subclass of trees is called a **Binary Tree** (for the sake of simplicy, it wi
 
 ```mermaid
 graph TD
-classDef full fill:#B882FA,color:#ffffff
-classDef complete fill:#3D4DEB,color:#ffffff
-classDef perfect fill:#82E2FA,color:#000000
+classDef full fill:#B882FA,color:#fff
+classDef complete fill:#3D4DEB,color:#fff
+classDef perfect fill:#82E2FA,color:#000
 A((A)) --> B((B))
 A --> C((C))
-
 B --> D((D))
 B --> E((E))
-
 C --> F((F))
 C --> G((G))
 class A,B,C,D,E full
