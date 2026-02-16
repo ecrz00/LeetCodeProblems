@@ -21,10 +21,10 @@ Each file has a consistent structure for easy review. The files' header includes
 *Click on to view the notes and problems per topic.*
 | **Topic** | **Basic Theory** | **Problems** |
 | :---- | :---   | :---     |
-|*Arrays*| [Check notes](./theory/Arrays.md) | [Solutions](./problems/ArraysAndHashTables/)|
-|*HashTables*| [Check notes](./theory/HashTables.md) | [Solutions](./problems/ArraysAndHashTables/)|
-|*Sorting*| [Check notes](./theory/Sorting.md) | No problems available |
-|*Linked List*| [Check notes](./theory/LinkedList.md) | [Solutions](./problems/LinkedLists/)|
-|*Stack and Queue*| [Check notes](./theory/StackQueue.md.md) | [Solutions](./problems/StackAndQueue/)|
+|*Arrays*| [Pending](./theory/Arrays.md) | [Solutions](./problems/ArraysAndHashTables/)|
+|*HashTables*| [Pending](./theory/HashTables.md) | [Solutions](./problems/ArraysAndHashTables/)|
+|*Sorting*| [Pending](./theory/Sorting.md) | No problems available |
+|*Linked List*| [Pending](./theory/LinkedList.md) | [Solutions](./problems/LinkedLists/)|
+|*Stack and Queue*| [Pending](./theory/StackQueue.md.md) | [Solutions](./problems/StackAndQueue/)|
 |*Trees*| [Check notes](./theory/Trees.md) | [Solutions](./problems/Trees/)|
-|*Graphs*| [Check notes](./theory/Graphs.md) | [Solutions](./problems/Graphs/)|
+|*Graphs*| [Pending](./theory/Graphs.md) | [Solutions](./problems/Graphs/)|

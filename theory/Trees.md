@@ -1,9 +1,10 @@
+# Trees
 Trees are used to represent hierarchical data. Logical representation of data is always an inverted tree: root at top and branching out in downward direction.
 
 There are three main concepts:
 * **Node**: Is the basic unit of the structure; it contains data and may contain a link or references to other nodes.
 * **Root**: Is the starting point of the tree:
-    * It's the topmost node and the common ancestor of all other nodes.
+    * It is the topmost node and the common ancestor of all other nodes.
     * A tree can only have one root.
     * All tree traversals must begin at the root.
 * **Leaf**: The nodes located at the end of the branches:
@@ -56,8 +57,6 @@ Once all the basic concepts have been covered, lets define other key terms:
     * The height of a leaf is always 0
     * The height of the tree is the height of the root node.
 
-
-
 A subclass of trees is called a **Binary Tree** (for the sake of simplicy, it will be referred to as BT), in which each node can have at most 2 children. An example of a BT can be found in Figure 2, from which some additional definitions will ve derived:
 
 * Full BT: Each node must have either zero or two children. The purple nodes in the diagram (Figure 2) represent a full BT.
@@ -93,6 +92,7 @@ B --> E((3))
 C --> F((7))
 C --> G((9))
 ```
+<p align="center"><i>Figure 3: Representation of a Binary Search Tree.</i></p>
 
 Some properties can be computed mathematically (these apply only when the root is considered level 0):
 * Maximum numbers of nodes at level *i* is given by 
@@ -101,3 +101,86 @@ Some properties can be computed mathematically (these apply only when the root i
     $$h = \log_{2}(n+1)-1$$
 * The maximum number of nodes in a perfect tree with heigth *h* is given by 
 $$max_{nodes} = 2^{h+1}-1 \quad \text{or} \quad max_{nodes} = 2^{\text{number of levels}}-1$$
+
+A BT can be implemented using:
+* Arrays, where the position of an element determines its relationships:
+    * With zero-based indexing: 
+    $$\text{left-child idx} = 2i+1$$
+    $$\text{right-child idx} = 2i+2$$
+    * With one-based indexing:
+    $$\text{left-child idx} = 2i$$
+    $$\text{right-child idx} = 2i+1$$
+```python
+arr = [1, 2, 3, 4, 5, 6, 7]
+'''
+root -> 1
+root's left-child -> 2
+root's right-child -> 3
+(2)'s left-child -> 4
+(2)'s right-child -> 5
+(3)'s left-child -> 6
+(3)'s right-child -> 7
+'''
+```
+
+* Dynamically created nodes, using a class:
+```python
+class TreeNode:
+    def __init__(self, value=0, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right=right
+```
+**All tree traversals must begin at the root**. There are two distinct traversing techniques:
+* **Depth-First Search (DFS)** 
+* **Breadth-First Search (BFS)**
+
+These techniques are used to visit and **process** the nodes. 
+**Note**: For this section, *process* is a generic term that can mean to print, edit or perform any operation on a node.
+## Depth-First Search
+As the name suggests, DFS prioritizes depth. Starting at the root, this technique tipically visit the left subtree before the right subtree. 
+
+![DFS](../assets/trees/dfs.gif)
+<p align="center"><i>Figure 4: DFS traversal on a Binary Tree. Orange indicates the node currently being visited, while blue represents backtracking to a previously visited node after its subtrees have been explored.</i></p>
+
+DFS can be implemented either with stack or recursion.
+
+### Iterative DFS using stack
+
+### DFS using recursion
+
+
+There are three different orders of processing:
+* **Pre-order** *(Process myself -> Visit left -> Visit right)*: The current node is processed first. Then, the left subtree is visited, followed by the right subtree. 
+    * Based on Figure 4, the result will be ```[F, D, B, A, C, E, J, G, I, H, K]```
+    ```python
+    def preOrder(node: TreeNode):
+        if not node:
+            return
+        print(node)
+        preOrder(node.left)
+        preOrder(node.right)
+    ```
+* **In-order** *(Visit left -> Process myself -> Visit right)*: The left subtree is visited first. Once there are no more nodes to the left, the current node is processed, followed by the traversal of the right subtree. 
+    * Based on Figure 4, the result will be ```[A, B, C, D, E, F, G, H, I, J, K]```
+    ```python
+    def inOrder(node: TreeNode):
+        if not node:
+            return
+        inOrder(node.left)
+        print(node)
+        inOrder(node.right)
+    ```
+* **Post-order** *(Visit left -> Visit right -> Process myself)*: The left subtree is traversed first, followed by the right subtree. Only after there are no more nodes on either side, the current node is processed. 
+    * Based on Figure 4, the result will be ```[A, C, B, E, D, H, I, G, K, J, F]```
+    ```python
+    def postOrder(node: TreeNode):
+        if not node:
+            return
+        postOrder(node.left)
+        postOrder(node.right)
+        print(node) 
+    ```
+
+
+
