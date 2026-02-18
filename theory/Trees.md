@@ -142,8 +142,11 @@ These techniques are used to visit and **process** the nodes.
 
 As the name suggests, DFS prioritizes depth. Starting at the root, this technique tipically visit the left subtree before the right subtree. 
 
-![DFS](../assets/trees/dfs.gif)
-<p align="center"><i>Figure 4: DFS traversal on a Binary Tree. Orange indicates the node currently being visited, while blue represents backtracking to a previously visited node after its subtrees have been explored.</i></p>
+<p align="center">
+  <img src="../assets/trees/dfs.gif" width="300" alt="DFS traversal animation">
+  <br>
+  <em>Figure 4: DFS traversal on a Binary Tree. Orange indicates the node currently being visited, while blue represents backtracking to a previously visited node after its subtrees have been explored.</em>
+</p>
 
 DFS can be implemented either with stack or recursion.
 
@@ -247,8 +250,11 @@ Complexity analysis is a vital part of understanding these algorithms. For a DFS
 ## Breadth-Fisrt Search 
 As the name suggests, BFS prioritizes breadth. Starting at the root node, all nodes at a given level are visited before moving to the next. Once the travelsal of L-0 is finished, L-1 is visited, followed by level 2, and so on.   
 
-![DFS](../assets/trees/bfs.gif)
-<p align="center"><i>Figure 5: BFS traversal on a Binary Tree. Orange indicates the node currently being visited.</i></p>
+<p align="center">
+  <img src="../assets/trees/bfs.gif" width="300" alt="BFS traversal animation">
+  <br>
+  <em>Figure 5: BFS traversal on a Binary Tree. Orange indicates the node currently being visited.</em>
+</p>
 
 A BFS algorithm takes advantage of several key properties of the **Queue**:
 * **FIFO (First-In, First-Out)**: This property forces to explore in a level order traversal.
