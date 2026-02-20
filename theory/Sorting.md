@@ -1,15 +1,31 @@
 # Sorting algorithms
 Searching in an **unsorted array** takes  **O(n)** times,he worst case, the algorithm must iterate through every element (Linear Search). In a sorted array, the same operation takes **O(log n)** using an Algorithm called [**Binary Search**](BinarySeach.md). This approach repeatedly divides the search interval in half, significantly reducing the number of comparisons.
 
-A collection of elements can be arranged in a specific order, (e.g., numbers in ascending/descending order or strings in alophabetic order). Sorting algorithms are generally categorized by their time complexity.
+A collection of elements can be arranged in a specific order, (e.g., numbers in ascending/descending order or strings in alophabetic order). Sorting algorithms are generally categorized by: 
+* **Time Complexity**, the rate at which the time taken by an algorithm grows as the input size increases.
+    * **Cuadratic O($n^2$)**: There are intuitive and easy to implement, but become significantly slower as the input increases. They are typically only recommended for small datasets or educational purposes.
+        * Selection Sort
+        * Bubble Sort
+        * Insertion Sort
+    * **Log-linear O($n \log(n)$)**: These utilize a Divide and Conquer strategy, often through recursion, to achieve much higher efficiency. They are the standard for production-level applications dealing with large amounts of data.
+        * Merge Sort
+        * Quick Sort
+* **Space Complexity**, the amount of memory an algorithm uses relative to the input size.
+* **Stability**, the ability to preserve the relative order of elements with equal values.
 
-* **Cuadratic O($n^2$)**: There are intuitive and easy to implement, but become significantly slower as the input increases. They are typically only recommended for small datasets or educational purposes.
-    * Selection Sort
-    * Bubble Sort
-    * Insertion Sort
-* **Log-linear O($n \log(n)$)**: These utilize a Divide and Conquer strategy, often through recursion, to achieve much higher efficiency. They are the standard for production-level applications dealing with large amounts of data.
-    * Merge Sort
-    * Quick Sort
+<p align="center">
+  <img src="../assets/arrays/stability.png" width="800" alt="Descripción de la imagen">
+  <br>
+  <em>Figure 1: The Six of Clubs comes before the Six of Hearts, so the order is preserved.</em>
+</p>
+
+* **Internal/External** This classification refers to where the data resides during the sorting process, which directly affects access speed and the strategy used to handle the data.
+    * **Internal Sorting (RAM):** occurs within the main memory. Common algorithms in this category include Bubble Sort, Insertion Sort, Quick Sort, and Heap Sort.
+        * Operations are significantly faster because the processor can jump from the 0th to the 500th position almost instantly (Random Access).
+        * The feasibility depends on the amount of free RAM compared to the dataset size.For example, trying to sort 64GB of data with 16 GB of RAM will cause a system failure.
+    * **External Sorting (Disk/Tapes)** used when a the amount of data is too large to does fit into RAM. 
+        * The data is divided into chunks that are small enough to be loaded into the RAM, where they are sorted using a internal sorting method. Each sorted chunk is then stored back in the external storage as a temporarly block.
+        * Once all blocks are individually sorted, an External Merge Sort algorithm merges them together.
 
 ## Selection Sort
 This algorithm works by repeatedly finding the minimum element from the unsorted part of the data. While the core logic remains the same, it can be implemented in two ways:
@@ -20,7 +36,7 @@ This algorithm works by repeatedly finding the minimum element from the unsorted
 <p align="center">
   <img src="../assets/arrays/selectionSort1.gif" width="500" alt="Descripción de la imagen">
   <br>
-  <em>Figure 1: Selection sort with extra space.</em>
+  <em>Figure 2: Selection sort with extra space.</em>
 </p>
 
 ```python
@@ -46,7 +62,7 @@ def selectionSort(a: list[int]) -> list[int]:
 <p align="center">
   <img src="../assets/arrays/selectionSort2.gif" width="200" alt="Descripción de la imagen">
   <br>
-  <em>Figure 2: Selection sort in-place.</em>
+  <em>Figure 3: Selection sort in-place.</em>
 </p>
 
 ```python
@@ -60,7 +76,7 @@ def selectionSort(a: list[int]) -> None:
         a[i], a[imin] = a[imin], a[i]
 
 ```
-
+### Complexity
 Both implementations share the same time complexity, but they differ significantly in how they handle memory:
 * **Time Complexity (O($n^2$)):** Both methods take quadratic time because the array is traversed entirely n times (where n is the number of elements). Even if the minimum is found in one step, the scanning must continue.
 * **Space Complexity:**
@@ -78,7 +94,7 @@ Bubble sort is an iterative algorithm that "bubbles up" the largest elements to 
 <p align="center">
   <img src="../assets/arrays/bubbleSort.gif" width="200" alt="Descripción de la imagen">
   <br>
-  <em>Figure 3: Bubble Sort.</em>
+  <em>Figure 4: Bubble Sort.</em>
 </p>
 
 ```python
@@ -93,7 +109,6 @@ def bubbleSort(a: list[int]):
         if flag:
             break
 ```
-
-This implementation takes **O($n^2$)** times to run because the array is traversed in a double-nested loop. Even though the inner loop gets shorter with each pass. In Big O analysis, as *n* tends to infinity, subtractions are ignored. 
-
-In termns of space, it occupies constant time **O(1)** because the array is modified in-place.
+### Complexity
+* **Time Complexity (O($n^2$)):** The array is traversed in a double-nested loop. Even though the inner loop gets shorter with each pass. In Big O analysis, as *n* tends to infinity, subtractions are ignored. 
+* **Space Complexity (O(1)):** Since the sorting happens in-place by swapping adjacent elements within the original memory block, it requires constant space regardless of the input size.
