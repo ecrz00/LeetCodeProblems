@@ -112,3 +112,26 @@ def bubbleSort(a: list[int]):
 ### Complexity
 * **Time Complexity (O($n^2$)):** The array is traversed in a double-nested loop. Even though the inner loop gets shorter with each pass. In Big O analysis, as *n* tends to infinity, subtractions are ignored. 
 * **Space Complexity (O(1)):** Since the sorting happens in-place by swapping adjacent elements within the original memory block, it requires constant space regardless of the input size.
+
+### Insertion Sort
+
+This algorithm divides the array into two subsets: a sorted and an unsorted part. Initially, The first element always belongs to the sorted set, while the rest resides in the unsorted part. 
+* Pick an element *b* from the unsorted subset.
+* Compare *b* with the previous value *a* in the sorted subset. Within a loop, the following instructions are executed until *b* reaches its proper position:
+    * If *a* is greater than *b*, shift *b* one position to the right (overwriting *b*'s previous spot) to make room.
+    * If *a* is smaller or equal than *b*, the correct position has been found, and the loop stops.
+* Insert b into its final position. 
+
+
+```python
+def insertionSort(a: list[int]):
+    value = idx = 0
+    n = len(a)
+    for i in range(n):
+        value, idx = a[i], i
+        while idx > 0 and a[idx-1] > value:
+            a[idx] = a[idx-1]
+            idx-=1
+        a[idx] = value 
+
+```
