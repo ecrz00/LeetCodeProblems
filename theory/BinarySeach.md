@@ -27,3 +27,44 @@ def BinarySeach(arr: list, target: int)-> int:
             low = mid + 1
     return -1
 ``` 
+
+BS is commonly utilized to:
+* Find first or last occurence of a specific value within a collection.
+* Determine the frequency of an element (i.e., how many times an element occurs).
+* Identify the rotation count of a sorted array (specifically, how many times an array has been rotated).
+* Locate an element within a circularly sorted array.
+
+## First/Last occurence
+Given a sorted array ```a = [1,2,3,4,4,4,5,6,7]``` where 4 is the target value, what index should the algorithm return? 
+* To find the first occurrence, the search must be continued on the left side, even after the target is initially located. This ensures that any potential matches at lower indices are identified.
+```python
+def findFirst(arr: list, target:int) -> int:
+    n = len(arr)
+    res = -1
+    lo, hi = 0, n-1
+    while lo<=hi:
+        mid=lo+((hi-lo)//2)
+        if arr[mid] == target:
+            res = mid
+            hi=mid-1
+        elif target<arr[mid]: hi = mid - 1
+        else: lo = mid+1
+    return res
+```
+* To find the last occurrence, the search must be continued on the right side even after the target is initially located.
+```python
+def findLast(arr: list, target: int) -> int:
+    n=len(arr)
+    lo, hi = 0, n-1
+    res=-1
+    while lo<=hi:
+        mid = lo+((hi-lo)//2)
+        if arr[mid] == target:
+            res=mid
+            lo=mid+1
+        elif target < arr[mid]: hi=mid-1
+        else: lo = mid+1
+    return res 
+```
+> [!NOTE]
+>  A different condition for the while loop is utilized in both implementations. The "inclusive" condition is preferred as it allows the search space to be fully exhausted.
